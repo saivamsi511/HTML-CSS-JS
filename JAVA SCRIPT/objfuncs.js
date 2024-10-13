@@ -8,9 +8,9 @@ const students = {
     }
 };
 
-// var p  = students.print.bind(this);
-// console.log(p)
-// students.print();
+var p  = students.print.bind(this);
+console.log(p)
+students.print();
 
 let obj = {
     name:"vamsi",

@@ -1,24 +1,24 @@
-// const fetchstudents = (callback) =>{
-//     let students =[
-//         {name:"sai" ,id:501},
-//         {name:"vamsi",id:310},
-//         {name:"king",id:384}
-//     ];
-//     return callback(students);
-// };
-// fetchstudents((x)=>{
-//     console.log(x);
-// });
+const fetchstudents = (callback) =>{
+    let students =[
+        {name:"sai" ,id:501},
+        {name:"vamsi",id:310},
+        {name:"king",id:384}
+    ];
+    return callback(students);
+};
+fetchstudents((x)=>{
+    console.log(x);
+});
 
-// (function add(a,b){
-//     console.log(a+b)
-// })(1,300)
+(function add(a,b){
+    console.log(a+b)
+})(1,300)
 
 
-// const high =(fun) =>{
-//     return fun(1,2)
-// }
-// console.log(high(add))
+const high =(fun) =>{
+    return fun(1,2)
+}
+console.log(high(add))
 
 
 
