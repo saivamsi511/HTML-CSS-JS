@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Posts</title>
+    <style>
+        button {
+            background-color: #0071bd;
+            color: white;
+            padding: 0.5rem 0.9rem;
+            font-size: medium;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        body {
+            padding: 1rem;
+        }
+        th,
+        tr,
+        td {
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Demo Posts</h1><br />
+    <button onclick="callServer()">Get Posts</button><br />
+    <div class="table">
+    </div>
+</body>
+
+<script>
+    function callServer() {
+        alert("called click func iton");
+        fetch("https://jsonplaceholder.typicode.com/posts").then((data) => {
+            return data.json();
+        }).then((r) => {
+            console.log(r);
+            addPosts(r);
+            alert(JSON.stringify(r))
+        }).
+            catch((error) => {
+                alert(error)
+            })
+    }
+    function addPosts(input) {
+        const arraResult = input;
+        const columns = ["body", "id", "title", "userId"]
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        const tr = document.createElement("tr");
+        table.appendChild(thead);
+        thead.appendChild(tr);
+        for (let i = 0; i < columns.length; i++) {
+            const th = document.createElement("th");
+            th.innerHTML = columns[i];
+            tr.appendChild(th);
+        };
+
+        const body = document.createElement("tbody");
+        for (let i = 0; i < arraResult.length; i++) {
+            const tr = document.createElement("tr");
+            let values = Object.values(arraResult[i]);
+            for (let i = 0; i < values.length; i++) {
+                const td = document.createElement("td");
+                td.innerHTML = values[i]
+                tr.appendChild(td);
+            }
+           body.appendChild(tr);
+        }
+        table.appendChild(body);
+        document.getElementsByClassName("table")[0].appendChild(table)
+
+    }
+</script>
+
+</html>

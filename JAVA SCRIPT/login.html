@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<div>>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid rgba(128, 128, 128, 0.543);
+            border-radius: 6px;
+            padding:1rem;
+            font-family: sans-serif;
+        }
+
+        input{
+            background-color: #0071bd5b;
+            padding: 0.5rem 0.9rem;
+            color:#0071bd;
+            font-family: sans-serif;
+            font-size: medium;
+            margin: 0.5rem;
+            outline: none;
+            border: none;
+            border-radius: 4px;
+        }
+        button{
+            background-color: #0071bd;
+            color:white;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+            padding: 0.5rem 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LMS login page</h1>
+        <label>Email ID</label><br/>
+        <input type="email"  id ="email" onkeydown="keyDownEvent(event)" onkeyup="keyUpEvent(this)" onkeypress="keypressEvent(event)" placeholder="Enter email"><br/>
+        <label>Password</label><br/>
+        <input id ="pass" onblur="callblur(this)" type ="password" placeholder="Enter password"><br/>
+        <label>selct state</label>
+        <select onchange="CallchangeEvent(event)">
+        <optgroup>
+            <option value="ap">Ap</option>
+            <option value ="ys">TS</option>
+            <option value="ka">KA</option>
+            <option value ="jk">JK</option>
+        </optgroup>
+    </select>
+        <button type="submit" onclick="callserver()">Login</button>
+
+    </div>
+</body>
+<script>
+    function keyUpEvent(param){
+        console.log(param)
+    }
+    // function callfocus(param){
+    //     alert(param.value)
+    // }
+    function callblur(input){
+        alert(input.value)
+    }
+    function keyDownEvent(param){
+        console.log(param)
+    }
+    function CallchangeEvent(input){
+        alert(input.target.value)
+    }
+    function keypressEvent(param){
+        console.log(param)
+    }
+    function callserver(){
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("pass").value;
+        alert("server function called"+"This is email:"+email+":This is password :"+password);
+    }
+</script>
+</html>
